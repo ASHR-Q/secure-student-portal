@@ -30,14 +30,20 @@ To stop the app, press `Ctrl+C`.
 - No stack traces or internal exception messages in browser error pages.
 - Student registration always assigns `STUDENT`; a user cannot choose `ADMIN` through the registration form.
 
+## Verification and demonstration
+- Run automated security-flow and smoke tests with `mvn test`.
+- See [the security verification report](docs/SECURITY_VERIFICATION_REPORT.md) for tested behavior, results, and limitations.
+- See [the local demonstration guide](docs/DEMO_GUIDE.md) for a suggested walkthrough.
+- Automated checks are not a substitute for the authorized manual penetration-testing steps below.
+
 ## Known limitations / next hardening tasks
 This is a capstone starter, not production-ready software. It uses a local H2 database and HTTP for localhost. For deployment, use PostgreSQL, HTTPS, `Secure` cookies, secrets management, rate limiting / account lockout, security headers with a tested Content Security Policy, audit logging, database migrations, and dependency scanning. Add password reset and email verification only if in scope. Avoid real personal data.
 
 ## Two-week plan
 1. Build/run the app and understand its routes and database.
 2. Review validation, authentication, password hashing, sessions, and RBAC.
-3. Add automated security tests for registration, role restrictions, CSRF, and session behaviour.
-4. Run an authorized local test using browser DevTools and Burp Suite Community.
+3. Automated tests for registration, role restrictions, and CSRF are implemented and run with `mvn test`; session behavior still needs coverage.
+4. Run an authorized local manual test using browser DevTools and Burp Suite Community.
 5. Use ffuf only against `http://127.0.0.1:8080` (your own local app) to discover routes.
 6. Record reproducible evidence, severity, impact, and remediation in `docs/PENETRATION_TEST_REPORT_TEMPLATE.md`.
 

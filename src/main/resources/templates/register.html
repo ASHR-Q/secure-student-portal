@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register | Secure Student Portal</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="card narrow"><a class="back" th:href="@{/}">← Home</a><p class="eyebrow">GET STARTED</p><h1>Create an account</h1>
+<p class="error" th:if="${registrationError}" th:text="${registrationError}"></p>
+<form th:action="@{/register}" th:object="${form}" method="post">
+<label for="username">Username</label><input id="username" th:field="*{username}" autocomplete="username" required minlength="3" maxlength="40">
+<ul class="field-errors" th:if="${#fields.hasErrors('username')}"><li th:each="e : ${#fields.errors('username')}" th:text="${e}"></li></ul>
+<label for="password">Password</label><input id="password" th:field="*{password}" type="password" autocomplete="new-password" required minlength="12" maxlength="72">
+<ul class="field-errors" th:if="${#fields.hasErrors('password')}"><li th:each="e : ${#fields.errors('password')}" th:text="${e}"></li></ul>
+<p class="muted">Use at least 12 characters. Your password is hashed before storage.</p>
+<button class="button full" type="submit">Create account</button></form><p class="muted">Already registered? <a th:href="@{/login}">Log in</a></p></main></body></html>

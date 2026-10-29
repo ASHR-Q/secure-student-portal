@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User management | Secure Student Portal</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><nav class="topbar"><a class="brand" th:href="@{/dashboard}">Student Portal</a><form th:action="@{/logout}" method="post"><button class="link-button" type="submit">Log out</button></form></nav>
+<main class="content"><a class="back" th:href="@{/dashboard}">← Dashboard</a><p class="eyebrow">RESTRICTED AREA</p><h1>User management</h1>
+<p>Only users with the ADMIN role can access this page.</p><div class="panel table-wrap"><table><thead><tr><th>ID</th><th>Username</th><th>Role</th></tr></thead><tbody>
+<tr th:each="account : ${users}"><td th:text="${account.id}"></td><td th:text="${account.username}"></td><td th:text="${account.role}"></td></tr>
+</tbody></table></div></main></body></html>

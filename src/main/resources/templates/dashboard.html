@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard | Secure Student Portal</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><nav class="topbar"><a class="brand" th:href="@{/dashboard}">Student Portal</a><form th:action="@{/logout}" method="post"><button class="link-button" type="submit">Log out</button></form></nav>
+<main class="content"><p class="eyebrow">YOUR DASHBOARD</p><h1>Welcome, <span th:text="${user.username}">student</span>.</h1>
+<div class="panel"><h2>Account details</h2><p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+<p><strong>Role:</strong> <span class="badge" th:text="${user.role}"></span></p>
+<p class="muted">Your account role is enforced by the server. Changing browser HTML does not grant additional permissions.</p></div>
+<div class="panel" th:if="${user.role.name() == 'ADMIN'}"><h2>Administrator tools</h2><p>Manage and review registered accounts.</p><a class="button" th:href="@{/admin/users}">Manage users</a></div>
+</main></body></html>

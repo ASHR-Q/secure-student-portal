@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Log in | Secure Student Portal</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="card narrow"><a class="back" th:href="@{/}">← Home</a><p class="eyebrow">WELCOME BACK</p><h1>Log in</h1>
+<p class="success" th:if="${param.registered}">Account created. You can now log in.</p>
+<p class="error" th:if="${param.error}">Login failed. Check your details and try again.</p>
+<p class="success" th:if="${param.logout}">You have been logged out.</p>
+<form th:action="@{/login}" method="post"><label for="username">Username</label><input id="username" name="username" autocomplete="username" required maxlength="40">
+<label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+<button class="button full" type="submit">Log in</button></form><p class="muted">New here? <a th:href="@{/register}">Create an account</a></p></main></body></html>

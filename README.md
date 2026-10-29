@@ -7,6 +7,7 @@ A local training application for secure web development and authorized penetrati
 - Maven 3.8+ (`mvn -version`)
 
 ## Run locally
+WTC-6ULBYBQK
 From this project directory:
 
 ```bash
